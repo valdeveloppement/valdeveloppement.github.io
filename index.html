@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+
+<html>
+     <head>
+
+        <title>Bloody Democracy</title>
+            
+        <!-- ---------------------------------------------------------Balises meta-------------------------------------------------------- -->
+        <meta name="description" content="Bloody Democracy: political idle game ">
+        <meta name="keywords" content="clicker, game, political, idle">
+        <meta name="author" content="Valentin, Julien, Sylvain, Dylan Java juillet 2019">
+
+
+            
+        <!-------------------Favicon---------------------->
+
+        <link rel="icon" href="images/favicon.ico" />
+
+                    
+        <!------------------------------- Feuilles de styles linkées en fonction des écrans ----------------------------------------->
+        <link rel="stylesheet" type="text/css" href="css/main-styles.css">
+        <!------------------------------- Feuilles de styles Odometer pour les compteurs ----------------------------------------->
+        <link rel="stylesheet" href="css/odometer-theme-dollar.css" />
+        <link rel="stylesheet" href="css/odometer-theme-train-station.css" />
+
+        <!-- ---------------------------------------Font Awesome 5.6.3 CDN--------------------------------------------- -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+        <!-- .........................................Fonts.................................... -->
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&display=swap" rel="stylesheet"> 
+
+                    
+     </head>
+    
+
+
+
+     <body> 
+
+
+		 
+
+		<div id="welcome">
+			<div id="close">
+				<i class="fas fa-times"></i>
+			</div>
+			<!-- <img id="logoWelcome" src="images/logoTitre.png">	 -->
+			<div id="welcomePresentation">
+				<p>Bienvenue sur Bloody Democracy!
+				</p>
+
+				<p>
+					Ce jeu clicker vous permettra de vivre la vie trépidente d'un président Français. Cynisme, suffisance et inhumanité seront vos meilleurs atouts pour parvenir à vos fins: Pouvoir et argent!<br><br> Vous êtes le président en place et les prochaines élections ont déjà commencé, votre but: gagner un max de thune et tenter de rester en place! Bien évidemment, ici on peut voter pour soi, alors faites chauffer votre souris dans cet ego-trip sanglant!<br><br> Les règles sont simples! Votez! Chaque clique vous fera gagner simultanément des votes et de l'argent. Débloquez des bonus qui vous permettront de décupler vos gains, et faites faces aux évennements qui viendront pimenter votre mandat! Attention, ici le temps passe vite, 1 jours dure 2 min!
+
+				</p>
+
+
+			</div>
+
+		</div>
+
+
+
+		
+		<div id="crs" class="event">
+			<!-- <div id="closeCrs" class="croix">
+			<i class="fas fa-times"></i>
+			</div> -->
+
+			<div id="descriptionCrs" class="descriptionEvent">
+				<div class="imageEvent">
+						<img id= "imgCrs" class="imgEvent" src="images/miniatures/crs.jpg">
+				</div>
+
+				<div id="texteCrs" class="texteEvent">
+					<p>
+
+						Vos toutous ne sont pas connus pour la finesse de leur raisonnement.<br> Certains ont prit un peu trop au pied de la lettre l'ordre "d'arracher la tête à tous ces crève la faim".<br>  Bob, n°12586 , s'est fait plaqué par sa copine la veille et s'est un peu emporté. La malheureuse sylvie venue manifester la tête haute est repartie deçue.<br>Les média vous demandent des comptes.
+					</p>
+
+				</div>
+
+
+
+			</div>
+
+			<div class="bottomEvents">
+						
+				<div class="zoneBoutonEvent">
+
+					<div id="boutonAchatBob" class="boutonAchatEvent" onclick="achatBob()">
+						<p>Bob aura 3j de prison avec sursis!</p>
+					</div>
+				</div>
+
+				<div class="zoneBoutonEvent">
+
+					<div id="boutonAchatSylvie" class="boutonAchatEvent" onclick="achatSylvie()">
+						<p>Sylvie s'est cognée contre une porte!</p>
+					</div>
+
+				</div>
+			</div>
+				
+		
+		</div>
+
+
+
+		<div id="migrants" class="event">
+				<!-- <div id="closeCrs" class="croix">
+				<i class="fas fa-times"></i>
+				</div> -->
+	
+				<div id="descriptionMigrants" class="descriptionEvent">
+					<div class="imageEvent">
+							<img id= "imgMigrants" class="imgEvent" src="images/miniatures/migrants.jpg">
+					</div>
+	
+					<div id="texteMigrants" class="texteEvent">
+						<p>
+							Un bateau transportant 92 migrants dont 15 enfatnts est en difficulté à 200 km de la côte. Le bateau surchargé menace de chavirer.<br> Un Orage et une mer agitée sont attendus dans la soirée.<br><br> Vous devez prendre une décision.
+							
+						</p>
+	
+					</div>
+	
+	
+	
+				</div>
+	
+				<div class="bottomEvents">
+							
+					<div class="zoneBoutonEvent">
+	
+						<div id="boutonAchatAide" class="boutonAchatEvent" onclick="achatSourd()">
+							<p>Pardon, j'écoutais pas</p>
+						</div>
+					</div>
+	
+					<div class="zoneBoutonEvent">
+	
+						<div id="boutonAchatSourd" class="boutonAchatEvent" onclick="achatAide()">
+							<p>Envoyer un bateau demain</p>
+						</div>
+	
+					</div>
+				</div>
+					
+			
+			</div>
+
+
+
+
+
+
+
+		
+		
+
+
+        <div id="gauche">
+			<div id="donnees">
+				<div id="compteurs">
+					<div id="vote" class="odometer">
+					</div>
+					
+
+					<div id="argent" class="odometer">
+					</div>
+
+				</div>
+
+				<div id="coeffs">
+
+					<div id="coeffsVote">
+					
+					</div>
+
+					<div id="coeffsArgent">
+					
+					</div>
+		
+				</div>
+
+				<div id="virgules">
+
+					<div id="virgulesVote">
+						<div id="virguleVote1" class="virgule">,</div>
+						<div id="virguleVote2" class="virgule">,</div>
+						<div id="virguleVote3" class="virgule">,</div>
+
+					</div>
+
+
+					<div id="virgulesArgent">
+						<div id="virguleArgent1" class="virgule">,</div>
+						<div id="virguleArgent2" class="virgule">,</div>
+						<div id="virguleArgent3" class="virgule">,</div>
+					</div>
+
+					
+				</div>
+
+
+				<div id="compteurs00">
+
+					<div id="compteurs002">
+						<div id="vote000" class="odometer ">
+							0
+						</div>
+						
+						<div id="argent000" class="odometer ">
+							0
+						</div>
+						<div id="vote0000" class="odometer ">
+							0
+						</div>
+							
+						<div id="argent0000" class="odometer ">
+							0
+						</div>
+		
+		
+					</div>
+
+
+
+					<div id="compteurs001">
+						<p><i class="fas fa-dollar-sign"></i>&nbsp</p>
+						
+
+
+						<div id="vote0" class="odometer ">
+							0
+						</div>
+			
+						<div id="argent0" class="odometer ">
+							0
+						</div>
+						<div id="vote00" class="odometer ">
+							0
+						</div>
+				
+						<div id="argent00" class="odometer ">
+							0
+						</div>
+
+					</div>
+
+
+				</div>
+				
+				<div id="calendar">
+					<p id="calendarTxt">
+					</p>
+				</div>
+			</div>
+
+            <div id="clicker">
+
+                <div id="boiteDessus" class="boite" >
+                    <img src="images/boiteDessus.png">
+                </div>
+
+            
+
+
+                <div id="brasPaper" class="bras">
+                    <img src="images/brasPaper.png">
+                </div>
+
+                <div id="brasDessus" class="bras">
+                    <img src="images/brasDessus.png">
+                </div>
+
+
+
+
+                <div id="brasDessous" class="bras">
+                    <img src="images/brasDessous.png">
+                </div>
+
+
+                <div id="boiteDessous" class="boite">
+                <img src="images/boiteDessous.png" alt="boite de vote Bloody Democracy">
+                </div>
+
+
+            </div>
+
+
+
+            <div id="table">
+                <img src="images/table.png" alt="table vote">
+            </div>
+
+            
+
+            <div id="rideau">
+                <img id="imgRideau" src="images/rideau.png" alt="rideau de vote">
+            </div>
+
+            <div id="fondRideau">
+            </div>
+
+
+
+		<!-----------------------------------------Sylvain--------------------------->
+
+        </div>
+        
+        <div id="droite">
+
+            <h1 id="titre"><img src="images/logoTitre.png" alt="Bloody Democracy"></h1>
+			
+			
+			<div id="globalGeneral">
+			
+				<div id="menuGeneral">
+					
+					<input type="radio" name="menuSwitchGen" id="selectBuffTemporaire" checked/>
+					<label id="ongletBuff" for="selectBuffTemporaire" onclick="showBonusTemp()" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+						<p><i class="fas fa-star"></i></p>
+					</label>
+
+					<input type="radio" name="menuSwitchGen" id="selectStatistique"/>
+					<label id ="ongletStat" for="selectStatistique" onclick="showStatistique()" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+						<p><i class="fas fa-chart-line"></i></p>
+					</label>
+						
+					<input type="radio" name="menuSwitchGen" id="selectRanking"/>
+					<label id="ongletRank" for="selectRanking" onclick="showRanking()" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+						
+						<p><i class="fas fa-trophy"></i></p>
+					</label>
+					 <!--
+					<input type="radio" name="menuSwitchGen" id="selectAchievement"/>
+					<label for="selectAchievement" onclick="showAchievement()" class="iconMenu">
+						<img src="images/miniatures/belleGeule3.jpg"/>
+					</label>
+					  -->
+						
+				</div>
+					
+				<div id="sliderGeneral">
+					
+
+					<div id="buffTemporaire" class="menuGen select">
+
+						<div id="buffBelleGueule" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/belleGeule3.jpg">
+							<div id="infoBelleGueule" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoBelleGueuleEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+						
+						<div id="buffArticle" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/articleJournal.jpg">
+							<div id="infoArticle" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoArticleEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffBelleMeuf" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/belleMeuf.jpg">
+							<div id="infoBelleMeuf" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoBelleMeufEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffPhoto" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/PhotoDeFamille.jpg">
+							<div id="infoPhoto" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoPhotoEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffGrenade" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/grenade.jpg">
+							<div id="infoGrenade" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoGrenadeEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffAvocat" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/avocat.jpg">
+							<div id="infoAvocat" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoAvocatEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffChomage" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/chomage.jpg">
+							<div id="infoChomage" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoChomageEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffRsa" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/rsa.jpg">
+							<div id="infoRsa" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoRsaEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffEducation" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/education.jpg">
+							<div id="infoEducation" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoEducationEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffCabinet" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/cabinetAvocat.jpg">
+							<div id="infoCabinet" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoCabinetEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffVenteArme" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/venteArme.jpg">
+							<div id="infoVenteArme" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoVenteArmeEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffJustice" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/justice.jpg">
+							<div id="infoJustice" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoJusticeEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffBfn" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/bfntv.jpg">
+							<div id="infoBfn" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoBfnEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+
+						<div id="buffPanem" class="buffCartes">
+							<img class="imgBuff" src="images/miniatures/panem.jpg">
+							<div id="infoPanem" class="infoBuff">	
+								<!-- 42<br>jours -->
+							</div>
+							<div id="infoPanemEffet" class="infoBuffEffect">
+								
+							</div>
+						</div>
+						
+
+					</div>
+
+
+					
+					<div id="statistique" class="menuGen notSelect">
+            
+						<div id="statistiqueGauche">
+							<p id="caisseNoire"></p>
+							<p id="argentTotalThisPlay"></p>
+							<p id="voteTotalThisPlay"></p>
+							<p id="argentTotalAllPlay"></p>
+							<p id="voteTotalAllPlay"></p>
+						</div>
+
+						<div id="statistiqueDroite">
+
+							<p id="timeFromStartThisPlay"></p>
+							<p id="timeFromStartAllPlay"></p>
+							<p id="voteParClic"></p>
+							<p id="argentParClic"></p>
+              				<p id="attenuationPertesGlobal"></p>
+						</div>
+						<div id="zoneReset">
+							<button id="reset" onclick="reset();">Reset</button>
+						</div>
+
+					</div>
+					
+					<div id="ranking" class="menuGen notSelect">
+						
+					</div>
+					<!--
+					<div id="achievement" class="menuGen notSelect">
+					</div>
+					  -->
+					
+				</div>
+			</div>
+			<div id="globalStore">
+
+
+				<div id="menuStore">
+					
+						<div id="pop">
+							<div id="pop1" class="pop popDisplay">
+								<img src="images/bubble.png"/>
+							</div>
+			
+							<div id="pop2" class="pop popDisplay">
+								<img src="images/bubble.png"/>
+
+							</div>
+			
+							<div id="pop3" class="pop popDisplay">
+								<img src="images/bubble.png"/>
+
+							</div>
+			
+			
+						</div>
+					<input type="radio" name="menuSwitchStore" id="selectVote" checked/>
+
+					<label for="selectVote" onclick="showVote()" id="miniatureMenuVote" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+
+						<p><i class="fas fa-vote-yea"></i></p>
+						
+					</label>
+
+					<input type="radio" name="menuSwitchStore" id="selectArgent"/>
+					<label for="selectArgent" onclick="showArgent()" id="miniatureMenuArgent" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+						<p><i class="fas fa-dollar-sign"></i></p>
+					</label>
+						
+					<input type="radio" name="menuSwitchStore" id="selectGestion"/>
+					<label for="selectGestion" onclick="showGestion()" id="miniatureMenuGestion" class="iconMenu">
+						<!-- <img src="images/miniatures/belleGeule3.jpg"/> -->
+						<p><i class="fas fa-home"></i></p>
+
+					</label>
+			
+				</div>
+				
+				<div id="sliderStore">	
+					<div id="slideVote" class="storeChoice select">
+						
+						<!-- <div id="voidVote" class="carte carteVote carteMenu select">
+							<h2>BONUS VOTE VIDE</h2>
+						</div> -->
+						
+						<div id="belleGueule" class="carte carteVote notSelect">
+							<div class="illustration">
+								<img src="images/miniatures/belleGeule3.jpg">
+							</div>
+		
+							<div class="contenu">
+								<div class="description">
+									<h3>Belle Gueule</h3>
+									<p>Offrez -vous une Belle gueule.
+										Basta les discours à rallonge !
+										Oubliez les programmes qui finiront par caler le fauteuil de mamie, ou en liste de course pour Lidle le samedi.
+										Le blabla c'est pour les ringards, pas pour les smicards. Pour leur faire tourner la tête, offrez-vous une belle tête !
+									</p>
+			
+								</div>
+
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Chirurgie esthétique: <b>1000€</b>. <br>A chaque clic,  <b>double vos gains.</b> <br> Durée: <b>1 mois.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatBelleGueule" class="boutonAchat" onclick="achat()"  onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+			
+							</div>
+						</div>
+						
+						<div id="belleMeuf" class="carte carteVote notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/belleMeuf.jpg">
+							</div>
+		
+							<div class="contenu">
+								<div class="description">
+									<h3>Belle Meuf</h3>
+									<p>«L'amour n'as pas d'âge»... C'est mignon...mais oubliez. Ne faites pas la même erreur que votre prédécesseur, évitez-les railleries des médias et faites grimper en flèche votre popularité en vous achetant une belle meuf, jeune, grande (10 cm de moins que vous), cultivée mais discrète. Elle pourra encore vous offrir une tripotée de bambins trop choupi, qui attendrirons tous les paparazzi à st Tropez cet été !
+									</p>
+			
+								</div>
+							
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Belle Meuf: <b>10000€</b>. <br>Vous permet d'obtenir <b>600 clicks supplementaires par jour.</b><br>"L'amour ne dure qu'un temps", votre belle meuf s'en ira au bout d' <b>1 mois</b>.
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatBelleMeuf" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+		
+							</div>
+						</div>
+					
+					<div id="photoDeFamille" class="carte carteVote notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/PhotoDeFamille.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>Photo de famille </h3>
+									<p>« Travail, Famille, Patrie » le trio gagnant ! Un bon chef d’Etat est un « bon père de famille ». Cet été à la plage, sortez votre femme et votre ribambelle de blondinets pour une séance photo so cute qui fera craquer tous les français !Évitez les poses allongées, face contre sable, qui pourraient rappeler le mauvais goût des syriens à la plage.</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Séance photo: <b>20000€</b>. <br>Vous êtes tellements choupi que vous remportez <b>25000 votes</b> d'un coup.<br>Pendant <b>1 semaines</b> bénéficiez de <b>1200 votes</b> par jours supplémentaires. <br>Ne raporte pas d'argent.
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatphotoDeFamille" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+					
+					<div id="grenade" class="carte carteVote notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/grenade.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>Grenades de désencerclement</h3>
+									<p>Ça n’arrête plus. « nianiania je suis pas assez payé », « nianiania j'ai trop d'élèves en cours», « nianiania la police à tuer mon fils »... Ne laissez plus les islamo-bobo-gauchistes  se rassembler pour tout et rien et miner votre réputation. Quand les gosses font des caprices, il n'y a rien de mieux qu'une bonne fessée. Quelques yeux en moins devraient refroidir ces Che Guevara en herbe. Commandez 10000 grenades de désencerclement. Soyez discrets , n'oubliez pas que vous êtes le seul pays européen à utiliser  ces armes contre sa population. L'ONU qui complote contre la France risque encore de crier  au loup.
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">La commande vous coûtera <b>50000€</b>. <br>Vous perdrez <b>15000 votes</b> d'un coup., mais pensez à long terme, vos adversaires n’oserons plus manifester et nuire à votre réputation. Vos clics seront <b>multipliés par 10</b> pendant <b>2 mois.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatGrenade" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+						<div id="teachers" class="carte carteVote notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/education.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>We don't need no education, Hey ! Teachers !  leave the kids alone !</h3>
+									<p>Si la tour Eiffel ne s 'allumait pas tous les soirs,  on aurait vite fait d'oublier que la France est le pays des Lumières. Derniers de la classe en math, en français, il paraîtrait que 3 lycéens sur 4 ne parviendraient pas à lire « tchoupi part en vacance »  jusqu'à la fin. Et toujours prêts à se faire remarquer 40% des élèves issus des milieux défavorisés seraient en échec scolaire. Ne gaspillez plus d'argent pour ces illettrés et faites des économies en supprimant 6000 postes de professeurs. 
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Cout de la reforme :. <b>50000€</b>. Récupérez <b>60000€</b> par mois. <br>Vous perdrez l'appui de 50% de professeurs : pertes, <b>5000 votes. Durée:6 mois</b>. 
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatEducation" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+					</div>
+					
+					<div id="slideArgent" class="storeChoice notSelect">
+
+						<!-- <div id="voidArgent" class="carte carteArgent carteMenu">
+							<h2>BONUS ARGENT VIDE</h2>
+						</div> -->
+
+						<div id="fmi" class="carte carteArgent notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/chomage.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>« Dans les bas-fonds, on rêve des fond du FMI »</h3>
+									<p>Quelle bande de tire au flanc ces français, 6 millions à passer leur journée devant Netflix plutôt que d'aller bosser pour remplir vos poches. Là où vous avez de la chance c'est qu'il n'y a que 500 000 postes vacants ! La plupart d'entre eux n'ont pas fini de se lamenter en caleçon dans le canapé pendant que les autres s'indigneront de leur oisiveté. Division, culpabilité, dépendance, le cocktail préféré de tout bon chef d'état. Tirez profit de ce trio parfait en supprimant 25% des Aides de retour à l'emploi.
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Pour faire passer la pillule, il va falloir une sacrée com.<br>Cout : <b>100000€</b>. Récupérez <b>70000€</b> par mois. <br>Vous perdrez <b>1000</b> votes par jours <b>pendant 4 mois.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatChomage" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+						<div id="rmi" class="carte carteArgent notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/rsa.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>« Mais au fond on sait qu’les familles sont souvent proches du RMI »</h3>
+									<p>Les pauvres veulent jouer au plus malin et près de la moitié d'entre eux ne réclament pas le Revenu de Solidarité Active auquel ils ont le droit. Montrez leur qui est le patron et supprimez le RSA. Astuce : Faites d'une pierre deux coups et transformez le en bénévolat obligatoire ! Les deux millions de Sans-dent risquent de chouiner mais la majorité des français seront favorables à mettre au travail ceux qui leur volent leur argent.
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Cout : <b>130000€</b>.Vous économiserez <b>40000€</b> par mois pendant <b>1 an</b>.<br>Vous perdrez l'appui des gueux :<b>2000</b>votes en moins par mois <b>pendant 1 an.</b>
+
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatrsa" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+						<div id="bfntv" class="carte carteArgent notSelect">
+							<div class="illustration">
+								<img src="images/miniatures/bfntv.jpg">
+							</div>
+		
+							<div class="contenu">
+								<div class="description">
+									<h3>Bloody For Nothing TV</h3>
+									<p>Vous aviez ciblé quelques vieux avec votre article dans le journal. Il est temps de voir les choses en grand et de toucher un max de beaufs en achetant la chaîne BFN TV. Imaginez une équipe entière déterminée à détruire l'esprit critique, rien que pour vous.
+									</p>
+			
+								</div>
+
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">On joue dans la cour des grands, coût: <b>250000€</b>. <br>Grâce à BFN TV faites exploser votre temps de parole et bénéficiez de <b>1000 clics par jours!</b> <br>La chaîne vous rapporte également un gain mensuel supplémentaire de <b>50 000€.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatbfntv" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+			
+							</div>
+						</div>
+						
+						<div id="panemCircenses" class="carte carteArgent notSelect">
+							<div class="illustration">
+								<img src="images/miniatures/panem.jpg">
+							</div>
+		
+							<div class="contenu">
+								<div class="description">
+									<h3>« Panem et Circenses »</h3>
+									<p>Du « Pain et des Jeux ». Les citoyens c'est comme les chiens, filez leur une baballe et vous pourrez les martyriser à votre guise sans que cela n'atteigne leur fidélité. Pour peu qu'ils gagnent et vous verrez tous ces crétinos en survet low-cost se prendre par la main ou faire la queue leu leu en braillant leur victoire imaginaire. Ils en oublierons qu'ils perdent tous les jours. Vous 1, le peuple 0. 
+									</p>
+			
+								</div>
+
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Coût : <b>400000€</b>. Remportez <b>100000 votes</b> d'un coup. <br>Profitez pour faire vos magouilles toutes pénalités financières et politiques seront <b>annulées pendant 3 mois.</b> 
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatPanem" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+			
+							</div>
+						</div>
+						
+					</div>
+					
+					<div id="slideGestion" class="storeChoice notSelect">
+						
+						<!-- <div id="voidGestion" class="carte carteGestion carteMenu">
+							<h2>BONUS GESTION VIDE</h2>
+						</div> -->
+						
+						<div id="articleJournal" class="carte carteGestion notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/articleJournal.jpg">
+							</div>
+                
+							<div class="contenu">
+								<div class="description">
+									<h3>Article dans Bloody For Nothing Newspaper</h3>
+									<p><br>Et oui c'est fou, il reste quelques has been qui lisent encore les journaux.. Alors pour tous les ringards qui restent dix minutes aux toilettes en lisant leur journal, offrez leur un petit moment de propagande intimiste.
+									</p>
+                
+								</div>
+                      <div class ="achat"> 
+                              <div class="zoneEffet">
+                                   <p class="effets">Achat d'un article dans le journal papier  Bloddy For Nothing : <b>5000€</b>. <br>A chaque clique,  <b>multiplie par 4</b> vos gains<br> Durée: <b>3 semaines.</b>
+                                   </p>
+                               </div>
+                               <div class="zoneBouton">
+                               <div id="boutonAchatarticleJournal" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+                               <p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+                                    
+								</div>
+                
+							</div>
+						</div>
+						
+						<div id="avocat" class="carte carteGestion notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/avocat.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>Achetez un Avocat !</h3>
+									<p>Avec tous ces mediapart et autres sites casses bonbons il devient difficile de faire ses petites magouilles avec ses amis ? Couvrez vos arrières et engagez un avocat à plein temps !
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Cout : <b>60000€</b>. Honoraires mensuels : <b>10000€</b>. <br>diminue de <b>30%</b> vos pertes financières et politiques. <br>Durée: <b>3 ans</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatAvocat" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+						<div id="cabinetAvocat" class="carte carteGestion notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/cabinetAvocat.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>Achetez un cabinet d'avocats</h3>
+									<p>Ah petit coquin, la loi c'est pas votre truc. Un seul avocat c'est pour les voleurs de pâtes, vous ce qu'il vous faut c'est un cabinet entier. Bénéficiez de 10 avocats prêts à tout pour vous laver les  mains et vous épargner les petits pépins avec la justice.
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Cout : <b>150000€</b>. Honoraires mensuels : <b>20000€</b>. <br>diminue de <b>50%</b> supplémentaires vos pertes financières et politiques.<br> Durée: <b>3ans.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatCabinetAvocat" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+						<div id="gnr" class="carte carteGestion notSelect">
+							<div class="illustration">
+								<img src="images/miniatures/venteArme.jpg">
+							</div>
+		
+							<div class="contenu">
+								<div class="description">
+									<h3>Guns N' Roses</h3>
+									<p>Avec un budget militaire en constante hausse, et 5 milliards d'euros annuels consacrés à la recherche et au développement, la France peut être fière de son savoir faire en matière de destruction de vie humaine. Valoriser ce savoir faire et faites en profiter quelques dictateurs impatients d’essayer vos nouveaux bijoux !Organisez une belle vente : L’Arabie saoudite attends impatiemment ses 50 canons Caesar  et ses 30 pods. Les chars Leclerc ont quant à eux taper dans l' œil des Émirats arabes unis ! Soyez discrets et livrez ce soir vos amis.
+									</p>
+			
+								</div>
+
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Entre la logistique et les pots-de-vins ça va douiller, Cout: <b>200000€</b>.<br> Cette belle opération vous rapporte <b>400000€</b> en cash dont <b>50000€</b> ira directement dans votre caisse noire !</b> L'UE vous mets une ammende de <b>100000€</b>.
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatVenteArme" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+			
+							</div>
+						</div>
+						
+						<div id="justice" class="carte carteGestion notSelect">
+
+							<div class="illustration">
+								<img src="images/miniatures/justice.jpg">
+							</div>
+
+							<div class="contenu">
+								<div class="description">
+									<h3>Faites la justice vous même.</h3>
+									<p>Nico et manu n'ont qu'à bien se tenir, ils ont trouvé leur maître. Les meilleurs avocats du monde ne pourraient rien pour vous. Au point où vous en êtes,  pourquoi vous embarrasser avec le principe fondamental de la séparation des pouvoirs. Nommez vous-même le procureur de Paris et assurez vous de ne plus être embêté par la justice. 
+									</p>
+
+								</div>
+								
+								<div class ="achat"> 
+									<div class="zoneEffet">
+										<p class="effets">Coût: <b>500000€</b>. Vous perdrez <b>20000 votes</b> de plébéiens récalcitrants à votre modernité. Mais vous n'auraient <b>plus jamais de pénalités.</b><br> Durée: <b>sans limites.</b>
+										</p>
+									</div>
+									<div class="zoneBouton">
+										<div id="boutonAchatJustice" class="boutonAchat" onclick="achat()" onmouseover="checkAchat(this);">
+											<p><i class="fas fa-shopping-cart"></i>&nbsp Buy </p>
+										</div>
+									</div>
+								
+								</div>
+
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			
+				<div id="thumbnailsVote" class="thumbnails select" onclick="stoppopvote()">
+					<div class="thumbDumb" >
+						<input type="radio" name="cardSwitchVote" id="id1Vote" class="radioVote"/>
+						
+						<label id="hideBelleGueule" for="id1Vote" onclick="showBelleGueule()">
+							<p class="cout" id="prixBelleGueule"></p>
+							<img  id="miniatureBelleGueule" src="images/miniatures/belleGeule3.jpg"/>
+						</label>
+								
+						<input type="radio" name="cardSwitchVote" id="id2Vote" class="radioVote"/>
+						<label id="hideBelleMeuf" for="id2Vote" onclick="showBelleMeuf()" class="miniatureDisplay">
+							<p class="cout" id="prixBelleMeuf"></p>
+							<img id="miniatureBelleMeuf" src="images/miniatures/belleMeuf.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchVote" id="id3Vote" class="radioVote"/>
+						<label id="hidePhoto" for="id3Vote" onclick="showPhotoDeFamille()" class="miniatureDisplay">
+							<p class="cout" id="prixPhoto"></p>
+							<img id="miniaturePhotoDeFamille" src="images/miniatures/PhotoDeFamille.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchVote" id="id4Vote" class="radioVote"/>
+						<label id="hideGrenade" for="id4Vote" onclick="showGrenade()" class="miniatureDisplay">
+							<p class="cout" id="prixGrenade"></p>
+							<img id="miniatureGrenade" src="images/miniatures/grenade.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchVote" id="id5Vote" class="radioVote"/>
+						<label id="hideEducation" for="id5Vote" onclick="showTeachers()" class="miniatureDisplay">
+							<p class="cout" id="prixEducation"></p>
+							<img id="miniatureEducation" src="images/miniatures/education.jpg"/>
+						</label>
+						
+					</div>
+				</div>
+				
+				<div id="thumbnailsArgent" class="thumbnails notSelect" onclick="stoppopargent()">
+					<div class="thumbDumb">
+						
+						<input type="radio" name="cardSwitchArgent" id="id1Argent" class="radioArgent"/>
+						<label id="hideChomage" for="id1Argent" onclick="showfmi()" class="miniatureDisplay">
+							<p class="cout" id="prixChomage"></p>
+							<img id="miniatureChomage" src="images/miniatures/chomage.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchArgent" id="id2Argent" class="radioArgent"/>
+						<label id="hidersa" for="id2Argent" onclick="showrmi()" class="miniatureDisplay">
+							<p class="cout" id="prixrsa"></p>
+							<img id="miniaturersa" src="images/miniatures/rsa.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchArgent" id="id3Argent" class="radioArgent"/>
+						<label id="hidebfntv" for="id3Argent" onclick="showbfntv()" class="miniatureDisplay">
+							<p class="cout" id="prixbfntv"></p>
+							<img id="miniaturebfntv" src="images/miniatures/bfntv.jpg">
+						</label>
+						
+						<input type="radio" name="cardSwitchArgent" id="id4Argent" class="radioArgent"/>
+						<label id="hidePanem" for="id4Argent" onclick="showpanemCircenses()" class="miniatureDisplay">
+							<p class="cout" id="prixPanem"></p>
+							<img id="miniaturePanem" src="images/miniatures/panem.jpg">
+						</label>
+						
+					</div>
+				</div>
+				
+				<div id="thumbnailsGestion"  class="thumbnails notSelect" onclick="stoppopgestion()" >
+					<div class="thumbDumb">
+						
+								
+						<input type="radio" name="cardSwitchGestion" id="id1Gestion" class="radioGestion"/>
+						<label id="hideArticle" for="id1Gestion" onclick="showArticleJournal()"  class="miniatureDisplay">
+							<p class="cout" id="prixArticle"></p>
+							<img id="miniatureArticleJournal" src="images/miniatures/articleJournal.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchGestion" id="id2Gestion" class="radioGestion"/>
+						<label id="hideAvocat" for="id2Gestion" onclick="showAvocat()" class="miniatureDisplay">
+							<p class="cout" id="prixAvocat"></p>
+							<img id="miniatureAvocat" src="images/miniatures/avocat.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchGestion" id="id3Gestion" class="radioGestion"/>
+						<label id="hideCabinetAvocat" for="id3Gestion" onclick="showCabinetAvocat()" class="miniatureDisplay">
+							<p class="cout" id="prixCabinetAvocat"></p>
+							<img id="miniatureCabinetAvocat" src="images/miniatures/cabinetAvocat.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchGestion" id="id4Gestion" class="radioGestion"/>
+						<label id="hideVenteArme" for="id4Gestion" onclick="showgnr()" class="miniatureDisplay">
+							<p class="cout" id="prixVenteArme"></p>
+							<img id="miniatureVenteArme" src="images/miniatures/venteArme.jpg"/>
+						</label>
+						
+						<input type="radio" name="cardSwitchGestion" id="id5Gestion" class="radioGestion"/>
+						<label id="hideJustice" for="id5Gestion" onclick="showJustice()" class="miniatureDisplay">
+							<p class="cout" id="prixJustice"></p>
+							<img id="miniatureJustice" src="images/miniatures/justice.jpg"/>
+						</label>
+						
+					</div>
+				</div>
+			</div>
+			<!-------------------------------Fin Sylvain------------------------------------->
+
+
+
+
+
+
+
+        </div>
+
+
+		<div id= "volumeOn" class="volume" onclick="changeMute()">
+			<i class="fas fa-volume-up"></i>
+		</div>
+		<div id= "volumeMute" class="volume " onclick="changeMute()">
+			<i class="fas fa-volume-mute"></i>
+		</div>
+
+
+
+
+		<div id="generique" class="generiqueDisplay">
+			<div id="closeVideo" onclick="stopTheVideo()">
+				<p>Passer</p>
+			</div>
+			<video id ="videoGenerique" width="100%" >
+				<source id="sourceVideo" src="video/generique.mp4" type="video/mp4" />
+				<!-- <source src="video.webm" type="video/webm" />
+				<source src="video.ogv" type="video/ogg" /> -->
+				Générique indisponible
+			</video>
+
+		</div>
+
+		<!-- document.getElementById("mp4_src").src = "movie.mp4";
+		document.getElementById("ogg_src").src = "movie.ogg";
+		document.getElementById("myVideo").load();  -->
+
+
+        <!---------------------------------------scripts JavaScript--------------------------------------------------->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/odometer.min.js"></script>
+        <script src="js/bloodydemocracy.js"></script>
+
+
+
+
+    </body>
+</html>
